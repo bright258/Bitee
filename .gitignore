@@ -1,0 +1,32 @@
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Environment variables file
+.env
+
+# Debug logs
+logs/
+
+# Built files
+dist/
+build/
+
+# OS or editor files
+.DS_Store
+Thumbs.db
+
+# Ignore package-lock.json if using npm <= 5
+package-lock.json
+
+# Ignore yarn.lock if using yarn
+yarn.lock
+
+# IDE files
+.vscode/
+.idea/
+
+# Log files
+*.log
