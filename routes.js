@@ -6,4 +6,4 @@ const router = express();
 router.post('/create', createController )
 
 
-module.exports = {router}
+module.exports = {router}  

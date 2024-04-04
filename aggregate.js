@@ -22,5 +22,40 @@ const aggregate = function(){
  
 }
 
-module.exports = aggregate
+const aggregateUsingUnwind = function(){
+    
+    MovieDB.Movie.aggregate([
+        {
+            $unwind: "$cast"
+        },
+
+        {
+            $match: {cast: "britanny"}
+        },
+
+        {
+            $group: {
+                _id: "$cast",
+                total: {$push: "$cast"}
+            }
+        }, 
+
+       {
+            $project: {
+                arrayLength: {
+                   $size: "$total"
+                }
+            }
+        }
+
+       
+    ]).exec().then(result =>{
+        
+        console.log('Result for unwinding  ', result)
+    }).catch(err =>{
+        console.log(err)
+    })
+}
+
+module.exports = {aggregate, aggregateUsingUnwind }
 

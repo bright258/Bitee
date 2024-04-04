@@ -2,13 +2,13 @@ const mongoose = require('mongoose')
 const express = require('express');
 require("dotenv").config();
 const {router} = require('./routes')
-const aggregate = require('./aggregate')
+const {aggregate, aggregateUsingUnwind} = require('./aggregate')
 
 const PORT = process.env.PORT;
 const DATABASE_LINK = process.env.DATABASE_LINK
 const app = express()
 
-
+   
 
 mongoose.connect(DATABASE_LINK).then(()=>{
     console.log('connected to db')
@@ -18,6 +18,7 @@ mongoose.connect(DATABASE_LINK).then(()=>{
 
 // code aggregate
 aggregate()
+aggregateUsingUnwind()
 
 app.use(express.json());
 
